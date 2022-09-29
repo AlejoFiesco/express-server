@@ -2,9 +2,5 @@ POST http://localhost:8080/buscar
 Content-Type: application/json
 
 {
-    "tabla": "eps",
-    "columnas" : [
-        "k_eps",
-        "n_nombreeps"
-    ]
+    "tabla": "eps"
 }
