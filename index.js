@@ -6,6 +6,13 @@ app.use('/buscar', routerBusquedas);
 
 const { pool } = require('./pool/pool.js');
 
+//Middleware
+var cors = require('cors')
+app.use(express.json());
+app.use(cors({
+    origin: '*'
+}));
+
 app.get('/', (req, res) => {
     res.send("API de eps");
 });

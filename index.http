@@ -1,4 +1,5 @@
-POST http://localhost:8080/buscar
+POST https://eps-factores.herokuapp.com/buscar
+X-SSL-ENABLE: 1
 Content-Type: application/json
 
 {
