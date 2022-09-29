@@ -1,17 +1,20 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 
 const {routerBusquedas} = require('./routers/routerBusqueda.js');
 app.use('/buscar', routerBusquedas);
 
-const { pool } = require('./pool/pool.js');
-
 //Middleware
-var cors = require('cors')
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+var cors = require('cors');
+
+app.use(function (req, res, next) {
+
+    res.header('Access-Control-Allow-Origin', "http://localhost:4200");
+    res.header('Access-Control-Allow-Headers', true);
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    next();
+  });
 
 app.get('/', (req, res) => {
     res.send("API de eps");
