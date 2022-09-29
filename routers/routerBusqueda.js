@@ -5,8 +5,13 @@ const { pool } = require('../pool/pool.js');
 //middleware
 routerBusquedas.use(express.json());
 
-routerBusquedas.post('/', (req, res) => {
-    const { body } = req;
+routerBusquedas.get('/:tabla/:columnas/:condiciones', (req, res) => {
+    const body = {
+        tabla: req.params.tabla,
+        columnas: req.params.columnas,
+        condiciones: req.params.condiciones
+    };
+    
     buscar(body)
         .then((response) => {
             res.send(response);
