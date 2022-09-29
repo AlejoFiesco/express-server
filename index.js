@@ -10,7 +10,8 @@ app.get('/', (req, res) => {
     res.send("API de eps");
 });
 
-const PORT = process.env.port || 8080;
+//const PORT = process.env.port || 8080;
+const PORT = 5432;
 console.log(PORT);
 
 
